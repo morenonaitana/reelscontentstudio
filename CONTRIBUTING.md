@@ -37,7 +37,8 @@ gotcha. This is how changes get in.
 ## What a good PR includes
 
 - **Show it.** Attach a still (or short clip) of every scene you changed. Reviewers judge frames, not code.
-- **Source it.** Any new number comes with its dataset in `data/` and a source line on screen.
+- **Get it right.** Facts are checked; charts use real data saved in `data/`. Reels made with strict
+  sourcing also put a source line on screen.
 - **Keep it real.** News screenshots are real articles and stay local (`public/news/` is git-ignored);
   link the article URLs in the PR instead.
 - **Document it.** If you added a technique, update the docs in the same PR:

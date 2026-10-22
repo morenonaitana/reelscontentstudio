@@ -15,7 +15,7 @@
 - [ ] `npm run typecheck` passes
 - [ ] I looked at rendered stills of everything I touched
 - [ ] No text overlaps text, numbers, captions, chart lines or the logo
-- [ ] Every on-screen number traces to `data/` or a cited source; source line on screen
-- [ ] News screenshots are real articles and are not committed
+- [ ] Facts checked; with strict sourcing, every on-screen number traces to `data/` and a source line is on screen
+- [ ] Any news screenshots are real articles and are not committed
 - [ ] No keys, `.env`, renders or third-party videos in the diff
 - [ ] Docs updated if I added a technique (`docs/STYLE.md`, `KitDemo`, `docs/REFERENCES.md`, `docs/TOOLS.md`, `docs/REELS.md`)

@@ -39,6 +39,18 @@ Collage variant: $1 from each decade 1920–2020 in today's dollars (CPI).
   `DecadeTimeline`, `PillCaptions`. Collage type set lives in `src/kit/collage/fonts.ts`.
 - Fast decade flip on "decade after decade" — swaps computed from the VO in `timing.ts`.
 
+## Qubitcove · 01 · What is an AI agent? — `src/reels/agents/` (`AgentsReel`, ~35s)
+
+Dark-tech variant for the tech/AI channel. No music bed: a platform sound is added at upload.
+
+- Hook: generated empty desk at night, cursor clicking by itself, `RandomLetters` + glitch line.
+- Two real headlines (CNBC Dec 2025, Live Science Apr 2026) in `NewsCard` with cyan highlight and red
+  underlines, plus source chips.
+- Chatbot vs agent panels (typed text vs a self-ticking checklist + `Cursor`), a plan → act → check →
+  repeat loop around a generated AI core, capability chips, a 0→9s `MonoCounter`, an approval prompt.
+- Timing: `timing.ts` (repeats: "the" ×7, "a" ×3, "it" ×3). The VO spells the brand "Cue-bit-cove" so it's
+  pronounced right; captions show "Qubitcove".
+
 ## KitDemo — `src/reels/kit-demo/`
 
 Every kit piece on its own panel: curve cut, fill text, random letters, odometer + counter, radio

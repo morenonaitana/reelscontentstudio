@@ -4,8 +4,9 @@ import { interpolate, Sequence, staticFile, useVideoConfig } from "remotion";
 export type Cue = { sfx: string; at: number; volume?: number };
 
 // Narration + music bed + one-shot sound effects placed on the master timeline.
-// voSrc/musicSrc are paths under public/, e.g. "audio/<reel>/vo.mp3". Cue names map to public/audio/sfx/<name>.mp3.
-export const Soundtrack: React.FC<{ voOffset: number; cues: Cue[]; voSrc: string; musicSrc: string }> = ({
+// voSrc/musicSrc are paths under public/, e.g. "audio/<reel>/vo.mp3"; omit musicSrc to leave room
+// for a platform sound added at upload. Cue names map to public/audio/sfx/<name>.mp3.
+export const Soundtrack: React.FC<{ voOffset: number; cues: Cue[]; voSrc: string; musicSrc?: string }> = ({
   voOffset,
   cues,
   voSrc,
@@ -19,7 +20,7 @@ export const Soundtrack: React.FC<{ voOffset: number; cues: Cue[]; voSrc: string
     });
   return (
     <>
-      <Audio src={staticFile(musicSrc)} volume={musicVolume} />
+      {musicSrc ? <Audio src={staticFile(musicSrc)} volume={musicVolume} /> : null}
       <Sequence from={voOffset} layout="none">
         <Audio src={staticFile(voSrc)} volume={1} />
       </Sequence>

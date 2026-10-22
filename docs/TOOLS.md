@@ -48,7 +48,9 @@ similarity 0.8, style 0.35, speed 1.1.
 
 - `npm run fred -- SERIES [SERIES…]` downloads FRED series (no key needed) to `data/` and prints
   latest / max / min. Series used so far: `DGS10` (10-yr yield), `MORTGAGE30US`, `CPIAUCNS`.
-- For other sources, save the raw file in `data/` and note the URL + date in the reel's data JSON.
+- For any other topic, save the raw file in `data/` and note the URL + date in the reel's data JSON.
+  Good open sources: Our World in Data (CSV download on every chart), World Bank, NASA / NOAA,
+  Eurostat, national statistics offices, Wikipedia tables (cite the underlying source).
 
 ## News capture
 

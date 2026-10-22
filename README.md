@@ -1,8 +1,8 @@
 # Reels Content Studio
 
-A working studio for **Vox-style informational shortform**: 9:16 explainer reels with paper
-textures, archival stills, match cuts, hand-drawn markups, real data charts and real news
-screenshots, narrated and cut to the voice. Built with [Remotion](https://www.remotion.dev)
+A working studio for **Vox-style informational shortform** on any topic — science, history, tech,
+culture, money: 9:16 explainer reels with paper textures, archival stills, match cuts, hand-drawn
+markups, data charts and news screenshots, narrated and cut to the voice. Built with [Remotion](https://www.remotion.dev)
 (React video), with stills from **Higgsfield** and voice/music/SFX from **ElevenLabs**.
 
 It's designed to be driven by an AI coding agent (Claude Code, Codex, Cursor…). You bring the
@@ -44,10 +44,11 @@ Videos land in `out/`.
    `.env` and add your ElevenLabs key; `.env` is git-ignored.)
 2. **Open the repo in your agent.** It reads `AGENTS.md` / `CLAUDE.md` automatically. That file
    tells it the scope, the house rules and the workflow.
-3. **Ask for a reel**, e.g. *"Make reel 04 about why rent has outpaced wages since 2010, ~40s."*
-   In Claude Code you can also run `/vox-reel`.
-4. **Expect three checkpoints** where the agent stops for you: the angle/beat plan, the news
-   screenshots, and the locked script. It will also quote credit costs before generating.
+3. **Ask for a reel**, e.g. *"Make a ~40s reel on why octopuses have nine brains"* or
+   *"Money, Explained 04: why rent has outpaced wages since 2010."* In Claude Code you can also
+   run `/vox-reel`.
+4. **Expect checkpoints** where the agent stops for you: the angle/beat plan, the locked script,
+   and (if the reel uses them) the news screenshots. It will also quote credit costs before generating.
 5. **Review** the MP4. Give notes like "push in harder on the headline" or "swap the 1981 photo"
    — changes after the build are cheap.
 
@@ -74,17 +75,19 @@ src/
   components/             series building blocks (captions, tag + progress bar, stamps, sound)
   reels/<reel>/           one folder per reel; _template/ to start a new one
   theme.ts                fonts (Geist / Geist Mono), colours, 1080×1920 @ 30fps
+  series.ts               series registry: tag name + logo per series
 public/                   assets used by reels: audio/<reel>/, audio/sfx/, assets/, decades/, news/
-data/                     source datasets (FRED CSVs)
+data/                     source datasets (FRED CSVs, any cited data)
 scripts/                  tts, music, sfx, FRED download, news capture, reel scripts (.txt)
 .claude/skills/vox-reel/  the /vox-reel skill for Claude Code
 ```
 
 ## House rules (short version)
 
-- Every number on screen comes from a saved source in `data/`; source line on screen.
+- Facts are checked; charts use real data saved in `data/`. Strict sourcing (source line on
+  screen, every number from `data/`) is optional, off by default.
 - Only real news articles, captured locally; never fake headlines. Screenshots aren't committed.
-- Geist / Geist Mono, "MONEY, EXPLAINED · NN" tag, Truflation logo bottom-right, grain on top.
+- Geist / Geist Mono, series tag top-left + series logo bottom-right (`src/series.ts`), grain on top.
 - Nothing overlaps: text, numbers, captions, chart lines and the logo each get their own space.
 - One idea per shot, one text animation at a time, cuts land on spoken words.
 

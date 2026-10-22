@@ -2,11 +2,14 @@ import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remo
 import { colors, fonts } from "../theme";
 
 // Persistent series tag + progress rule, and a quick flash on each match cut.
-export const Chrome: React.FC<{ cuts: number[]; tag?: string; font?: string; accent?: string }> = ({
+// fg/bg recolour the tag chip for dark themes.
+export const Chrome: React.FC<{ cuts: number[]; tag?: string; font?: string; accent?: string; fg?: string; bg?: string }> = ({
   cuts,
   tag = "MONEY, EXPLAINED · 01",
   font = fonts.mono,
   accent = colors.marker,
+  fg = colors.ink,
+  bg = colors.paper,
 }) => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
@@ -26,10 +29,10 @@ export const Chrome: React.FC<{ cuts: number[]; tag?: string; font?: string; acc
           fontWeight: 700,
           fontSize: 28,
           letterSpacing: 3,
-          color: colors.ink,
-          background: colors.paper,
+          color: fg,
+          background: bg,
           padding: "6px 14px",
-          border: `3px solid ${colors.ink}`,
+          border: `3px solid ${fg}`,
         }}
       >
         {tag}

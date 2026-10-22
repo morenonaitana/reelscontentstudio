@@ -1,0 +1,467 @@
+[
+ {
+  "text": "Your",
+  "start": 0.0,
+  "end": 0.197
+ },
+ {
+  "text": "next",
+  "start": 0.255,
+  "end": 0.453
+ },
+ {
+  "text": "coworker",
+  "start": 0.499,
+  "end": 0.952
+ },
+ {
+  "text": "might",
+  "start": 1.01,
+  "end": 1.184
+ },
+ {
+  "text": "not",
+  "start": 1.219,
+  "end": 1.335
+ },
+ {
+  "text": "be",
+  "start": 1.382,
+  "end": 1.474
+ },
+ {
+  "text": "human.",
+  "start": 1.521,
+  "end": 1.985
+ },
+ {
+  "text": "The",
+  "start": 2.728,
+  "end": 2.844
+ },
+ {
+  "text": "biggest",
+  "start": 2.891,
+  "end": 3.181
+ },
+ {
+  "text": "names",
+  "start": 3.228,
+  "end": 3.46
+ },
+ {
+  "text": "in",
+  "start": 3.506,
+  "end": 3.576
+ },
+ {
+  "text": "tech",
+  "start": 3.634,
+  "end": 3.901
+ },
+ {
+  "text": "and",
+  "start": 3.959,
+  "end": 4.087
+ },
+ {
+  "text": "payments",
+  "start": 4.145,
+  "end": 4.54
+ },
+ {
+  "text": "are",
+  "start": 4.586,
+  "end": 4.714
+ },
+ {
+  "text": "racing",
+  "start": 4.76,
+  "end": 5.039
+ },
+ {
+  "text": "to",
+  "start": 5.074,
+  "end": 5.12
+ },
+ {
+  "text": "build",
+  "start": 5.166,
+  "end": 5.364
+ },
+ {
+  "text": "AI",
+  "start": 5.41,
+  "end": 5.747
+ },
+ {
+  "text": "agents.",
+  "start": 5.805,
+  "end": 6.327
+ },
+ {
+  "text": "A",
+  "start": 6.513,
+  "end": 6.571
+ },
+ {
+  "text": "chatbot",
+  "start": 6.629,
+  "end": 7.059
+ },
+ {
+  "text": "answers",
+  "start": 7.117,
+  "end": 7.396
+ },
+ {
+  "text": "your",
+  "start": 7.43,
+  "end": 7.535
+ },
+ {
+  "text": "question.",
+  "start": 7.57,
+  "end": 8.104
+ },
+ {
+  "text": "An",
+  "start": 8.394,
+  "end": 8.51
+ },
+ {
+  "text": "agent",
+  "start": 8.568,
+  "end": 8.812
+ },
+ {
+  "text": "does",
+  "start": 8.847,
+  "end": 9.021
+ },
+ {
+  "text": "the",
+  "start": 9.067,
+  "end": 9.137
+ },
+ {
+  "text": "job.",
+  "start": 9.195,
+  "end": 9.648
+ },
+ {
+  "text": "Give",
+  "start": 9.938,
+  "end": 10.124
+ },
+ {
+  "text": "it",
+  "start": 10.147,
+  "end": 10.194
+ },
+ {
+  "text": "a",
+  "start": 10.217,
+  "end": 10.24
+ },
+ {
+  "text": "goal,",
+  "start": 10.298,
+  "end": 10.786
+ },
+ {
+  "text": "and",
+  "start": 10.971,
+  "end": 11.146
+ },
+ {
+  "text": "it",
+  "start": 11.204,
+  "end": 11.262
+ },
+ {
+  "text": "plans",
+  "start": 11.308,
+  "end": 11.598
+ },
+ {
+  "text": "the",
+  "start": 11.656,
+  "end": 11.726
+ },
+ {
+  "text": "steps,",
+  "start": 11.784,
+  "end": 12.365
+ },
+ {
+  "text": "uses",
+  "start": 12.655,
+  "end": 12.934
+ },
+ {
+  "text": "your",
+  "start": 12.98,
+  "end": 13.108
+ },
+ {
+  "text": "apps,",
+  "start": 13.166,
+  "end": 13.677
+ },
+ {
+  "text": "checks",
+  "start": 13.839,
+  "end": 14.118
+ },
+ {
+  "text": "its",
+  "start": 14.164,
+  "end": 14.281
+ },
+ {
+  "text": "work,",
+  "start": 14.327,
+  "end": 14.757
+ },
+ {
+  "text": "and",
+  "start": 14.942,
+  "end": 15.093
+ },
+ {
+  "text": "keeps",
+  "start": 15.151,
+  "end": 15.395
+ },
+ {
+  "text": "going.",
+  "start": 15.442,
+  "end": 15.871
+ },
+ {
+  "text": "It",
+  "start": 16.417,
+  "end": 16.533
+ },
+ {
+  "text": "can",
+  "start": 16.568,
+  "end": 16.672
+ },
+ {
+  "text": "already",
+  "start": 16.719,
+  "end": 16.997
+ },
+ {
+  "text": "research,",
+  "start": 17.055,
+  "end": 17.682
+ },
+ {
+  "text": "write",
+  "start": 17.938,
+  "end": 18.193
+ },
+ {
+  "text": "code,",
+  "start": 18.24,
+  "end": 18.785
+ },
+ {
+  "text": "and",
+  "start": 19.075,
+  "end": 19.226
+ },
+ {
+  "text": "fill",
+  "start": 19.296,
+  "end": 19.47
+ },
+ {
+  "text": "your",
+  "start": 19.528,
+  "end": 19.621
+ },
+ {
+  "text": "shopping",
+  "start": 19.668,
+  "end": 19.993
+ },
+ {
+  "text": "cart.",
+  "start": 20.039,
+  "end": 20.434
+ },
+ {
+  "text": "The",
+  "start": 21.072,
+  "end": 21.188
+ },
+ {
+  "text": "catch?",
+  "start": 21.235,
+  "end": 21.723
+ },
+ {
+  "text": "One",
+  "start": 22.466,
+  "end": 22.628
+ },
+ {
+  "text": "agent",
+  "start": 22.663,
+  "end": 22.895
+ },
+ {
+  "text": "deleted",
+  "start": 22.93,
+  "end": 23.243
+ },
+ {
+  "text": "a",
+  "start": 23.278,
+  "end": 23.301
+ },
+ {
+  "text": "company's",
+  "start": 23.36,
+  "end": 23.754
+ },
+ {
+  "text": "entire",
+  "start": 23.801,
+  "end": 24.149
+ },
+ {
+  "text": "database",
+  "start": 24.195,
+  "end": 24.59
+ },
+ {
+  "text": "in",
+  "start": 24.625,
+  "end": 24.683
+ },
+ {
+  "text": "nine",
+  "start": 24.741,
+  "end": 24.95
+ },
+ {
+  "text": "seconds.",
+  "start": 24.997,
+  "end": 25.589
+ },
+ {
+  "text": "So",
+  "start": 26.227,
+  "end": 26.367
+ },
+ {
+  "text": "the",
+  "start": 26.413,
+  "end": 26.483
+ },
+ {
+  "text": "smart",
+  "start": 26.529,
+  "end": 26.761
+ },
+ {
+  "text": "ones",
+  "start": 26.819,
+  "end": 27.028
+ },
+ {
+  "text": "ask",
+  "start": 27.11,
+  "end": 27.4
+ },
+ {
+  "text": "before",
+  "start": 27.458,
+  "end": 27.725
+ },
+ {
+  "text": "they",
+  "start": 27.76,
+  "end": 27.887
+ },
+ {
+  "text": "act,",
+  "start": 27.945,
+  "end": 28.387
+ },
+ {
+  "text": "and",
+  "start": 28.735,
+  "end": 28.886
+ },
+ {
+  "text": "you",
+  "start": 28.932,
+  "end": 29.014
+ },
+ {
+  "text": "stay",
+  "start": 29.072,
+  "end": 29.246
+ },
+ {
+  "text": "the",
+  "start": 29.292,
+  "end": 29.362
+ },
+ {
+  "text": "boss.",
+  "start": 29.397,
+  "end": 29.861
+ },
+ {
+  "text": "Follow",
+  "start": 30.5,
+  "end": 30.778
+ },
+ {
+  "text": "Cue-bit-cove",
+  "start": 30.836,
+  "end": 31.568
+ },
+ {
+  "text": "so",
+  "start": 31.614,
+  "end": 31.835
+ },
+ {
+  "text": "you're",
+  "start": 31.939,
+  "end": 32.125
+ },
+ {
+  "text": "not",
+  "start": 32.16,
+  "end": 32.288
+ },
+ {
+  "text": "the",
+  "start": 32.322,
+  "end": 32.392
+ },
+ {
+  "text": "last",
+  "start": 32.45,
+  "end": 32.671
+ },
+ {
+  "text": "to",
+  "start": 32.694,
+  "end": 32.752
+ },
+ {
+  "text": "know.",
+  "start": 32.798,
+  "end": 33.344
+ }
+]

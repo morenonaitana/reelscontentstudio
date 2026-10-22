@@ -5,24 +5,34 @@ reels 01–03; follow it in order and stop at the three checkpoints (✋).
 
 ## 1. Align ✋
 
-Ask the user up to three multiple-choice questions, recommended option first:
+Ask the user up to four multiple-choice questions, recommended option first:
 
-- **Angle** — e.g. for "10-year yields": *history-led round trip* / *what it costs you* / *why it's rising*.
+- **Angle** — e.g. for "why octopuses are smart": *how their brain works* / *the experiments* /
+  *what it means for us*; for "10-year yields": *history-led round trip* / *what it costs you*.
 - **Length** — 25s (punchy), ~40s (standard), 60–90s (YouTube Shorts long form).
-- **Screenshots** — agent finds and captures, user supplies, or a mix.
+- **Series** — which entry in `src/series.ts` (`explained` by default, `money` for finance reels,
+  or a new one).
+- **Data & news** — none (story-led), a data chart, news screenshots, or both; and whether to use
+  **strict sourcing** (off by default — see Research).
 
 Then present a **beat table** (time · beat · draft narration · visuals) and get a yes.
 
 ## 2. Research and data
 
-- Pull every series you'll quote into `data/` (`npm run fred -- SERIES …`). Write a tiny script to
-  compute each on-screen figure (peaks, lows, "highest since", averages, payments) and print it.
-- Report the numbers back with sources. Flag contradictions — e.g. an article saying "highest since
-  2007" when the data now says 2002 — and adjust what you highlight.
-- Save chart-ready data next to the reel (`src/reels/<reel>/<series>.json`), pinning exact extremes
-  and the latest value so readouts land on the published figures.
+- Check the facts the script rests on and tell the user anything you're unsure of.
+- If the reel shows data, save the raw dataset in `data/` (`npm run fred -- SERIES …` for US
+  economic series; otherwise download from Our World in Data, World Bank, NASA, an official
+  statistics office, etc.). Write a tiny script to compute each on-screen figure and print it.
+- Flag contradictions — e.g. an article saying "highest since 2007" when the data now says 2002 —
+  and adjust what you highlight.
+- Save chart-ready data next to the reel (`src/reels/<reel>/<data>.json`), pinning exact extremes
+  and the latest value so readouts land on the real figures.
 
-## 3. Screenshots ✋
+**Strict sourcing (opt-in, off by default).** When the user turns it on: every on-screen number
+must come from a file in `data/` (never typed from memory), a source line goes on screen, and the
+review checklist's sourcing items become required.
+
+## 3. Screenshots ✋ (only if the reel uses news)
 
 - Capture real, published pages: `npm run capture -- <url> public/news/<name>-raw.png 1100 900`.
 - Crop to the article (`ffmpeg -i raw.png -vf crop=w:h:x:y out.png`), show the crops to the user.
@@ -77,9 +87,9 @@ Check the generated stills before using them (open them; look for text artefacts
 
 ### Review checklist
 
-- [ ] Hook lands in 3s; series tag, progress bar, logo and grain present
-- [ ] Every figure traceable to `data/` or a cited source; source line on screen
-- [ ] Screenshots are real and approved; highlights match the narration
+- [ ] Hook lands in 3s; series tag, progress bar, logo (if the series has one) and grain present
+- [ ] Claims are accurate; strict mode: every figure traceable to `data/`, source line on screen
+- [ ] Any screenshots are real and approved; highlights match the narration
 - [ ] No text overlaps anything (chart rules in STYLE.md)
 - [ ] Captions readable on mute, one line where possible
 - [ ] One text animation at a time; markups have a purpose
@@ -87,5 +97,5 @@ Check the generated stills before using them (open them; look for text artefacts
 
 ## 9. Hand off
 
-Send the MP4 and summarise: the beats, where each number comes from, credits spent, and anything
-the user should double-check (e.g. a figure that will change if the data updates).
+Send the MP4 and summarise: the beats, where the facts and numbers come from, credits spent, and
+anything the user should double-check (e.g. a figure that will change if the data updates).

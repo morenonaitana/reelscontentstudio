@@ -3,8 +3,13 @@ import { Chrome } from "../../components/Chrome";
 import { Grain } from "../../components/Grain";
 import { PhraseCaptions } from "../../components/PhraseCaptions";
 import { BrandBug, FillText, GridPaper, MarkerCircle, MonoCounter } from "../../kit";
+import { SERIES, seriesTag } from "../../series";
 import { colors, fonts } from "../../theme";
 import { B, PHRASES, TEMPLATE_FRAMES } from "./timing";
+
+// Pick the series (src/series.ts) and this reel's number in it.
+const SERIES_ID = "explained";
+const EPISODE = "NN";
 
 // Minimal reel showing the house structure:
 // background → content scenes → captions → chrome (series tag + progress) → logo → grain → sound.
@@ -24,8 +29,8 @@ export const TemplateReel: React.FC = () => (
     <MarkerCircle cx={540} cy={900} rx={330} ry={150} start={B.gap} />
 
     <PhraseCaptions phrases={PHRASES} until={TEMPLATE_FRAMES} />
-    <Chrome cuts={[]} tag="MONEY, EXPLAINED · NN" />
-    <BrandBug />
+    <Chrome cuts={[]} tag={seriesTag(SERIES_ID, EPISODE)} />
+    <BrandBug src={SERIES[SERIES_ID].logo} />
     <Grain />
   </AbsoluteFill>
 );

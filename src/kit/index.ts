@@ -24,3 +24,5 @@ export { BrandBug } from "./BrandBug";
 export { ChartCallout } from "./chart/ChartCallout";
 export { hitsLine, intersect, placeLabel } from "./chart/collide";
 export type { ChartFocus } from "./chart/LineChart";
+export { TechGrid } from "./tech/TechGrid";
+export { tech, glow } from "./tech/palette";

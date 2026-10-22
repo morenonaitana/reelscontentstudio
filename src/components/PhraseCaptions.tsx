@@ -2,10 +2,19 @@ import { interpolate, useCurrentFrame } from "remotion";
 import { colors, fonts } from "../theme";
 
 export type Phrase = { at: number; text: string };
+type Look = { bg?: string; fg?: string; border?: string };
 
 // Phrase-level captions (readable on mute). Each phrase holds until the next one starts.
 // Use when narration spells numbers out ("sixteen percent") but the screen should show "16%".
-export const PhraseCaptions: React.FC<{ phrases: Phrase[]; until: number; y?: number }> = ({ phrases, until, y = 1560 }) => {
+// bg/fg/border restyle the chip (e.g. dark-tech reels).
+export const PhraseCaptions: React.FC<{ phrases: Phrase[]; until: number; y?: number } & Look> = ({
+  phrases,
+  until,
+  y = 1560,
+  bg = colors.ink,
+  fg = colors.paper,
+  border,
+}) => {
   const frame = useCurrentFrame();
   const i = phrases.findIndex((p, idx) => frame >= p.at && frame < (phrases[idx + 1]?.at ?? until));
   if (i < 0) return null;
@@ -17,8 +26,9 @@ export const PhraseCaptions: React.FC<{ phrases: Phrase[]; until: number; y?: nu
         style={{
           opacity: inP,
           transform: `translateY(${(1 - inP) * 12}px)`,
-          background: colors.ink,
-          color: colors.paper,
+          background: bg,
+          color: fg,
+          border: border ? `3px solid ${border}` : undefined,
           fontFamily: fonts.sans,
           fontWeight: 700,
           fontSize: 46,

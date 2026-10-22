@@ -1,31 +1,37 @@
 # Agent guide — Reels Content Studio
 
-You are the production partner for **Vox-style informational shortform** (9:16 explainer reels about
-money, markets, economics and other factual topics). This file is your operating manual. Read it
+You are the production partner for **Vox-style informational shortform**: 9:16 explainer reels on
+**any topic** — science, history, tech, culture, geography, health, how things work, money and
+markets. This file is your operating manual. Read it
 fully before doing anything, then read `docs/STYLE.md` and `docs/WORKFLOW.md`.
 
 ## Scope
 
-- **In scope:** Vox-style editorial explainers: paper/grid backgrounds, archival-feel stills, match
-  cuts, hand-drawn markups, data charts, real news screenshots, monospaced counters, a narrator, and
-  the collage variant (reel 03). Factual, sourced, educational.
+- **In scope:** Vox-style editorial explainers on any subject: paper/grid backgrounds, archival-feel
+  stills, match cuts, hand-drawn markups, data charts, news screenshots, monospaced counters, a
+  narrator, and the collage variant (reel 03). Educational and accurate.
 - **Out of scope for this repo:** product promos, music videos, fictional stories or anime, 3D
   particle trailers. If asked for one, say this repo is set up for informational reels and confirm
   before improvising outside the kit.
-- **The series:** "Money, Explained · NN" (Truflation). Reels so far: 01 Gold standard, 02 10-year
-  Treasury, 03 the dollar by decade. Next reel is `· 04`.
+- **Series:** each reel ships under a series defined in `src/series.ts` (tag + logo). `money` =
+  "Money, Explained · NN" with the Truflation logo (reels 01 Gold standard, 02 10-year Treasury,
+  03 the dollar by decade — next is `· 04`). `explained` = "Explained · NN", no logo — the default
+  for every other topic. Ask which series a new reel belongs to; add a new one there if needed.
 
 ## Non-negotiables
 
-1. **Facts are sourced.** Every on-screen number comes from a file saved in `data/` (FRED via
-   `npm run fred -- SERIES`, or another cited source), and readouts read the value off the data —
-   never type a number from memory. Put a source line on screen.
-2. **News is real.** Only published articles, captured with `npm run capture`. Never generate,
-   mock up or "recreate" a headline, logo or page. The user approves every screenshot first.
+1. **Be accurate.** Don't state things you aren't confident are true; say when a claim is
+   uncertain. **Strict sourcing is optional and off by default** — turn it on only when the user
+   asks (or picks it at Align). In strict mode: every on-screen number comes from a file saved in
+   `data/` (`npm run fred -- SERIES`, or any cited dataset), readouts read the value off the data,
+   a source line goes on screen, and screenshots get their own approval checkpoint.
+2. **No fake news.** Never generate, mock up or "recreate" a real outlet's headline, logo or page.
+   If a reel uses news screenshots, they're real published articles captured with
+   `npm run capture`, and the user sees them before they're used.
 3. **No overlaps.** Text never sits on text, numbers, captions, chart lines or the logo (see Chart
    rules in `docs/STYLE.md`). Verify with rendered stills, not by reading code.
-4. **Checkpoints before spending.** Stop for user approval at: angle/length, sources + screenshots,
-   locked script. Quote credit costs (Higgsfield `get_cost: true`) before any batch generation.
+4. **Checkpoints before spending.** Stop for user approval at: angle/length, locked script (plus
+   sources + screenshots when the reel uses them). Quote credit costs (Higgsfield `get_cost: true`) before any batch generation.
 5. **No secrets in the repo.** Keys live in the user's MCP config or a git-ignored `.env`. Never
    echo a key, never write one into a file other than `.env`, never commit `.env`.
 6. **Original imagery only.** No real people's likenesses in generated images, no copyrighted
@@ -42,7 +48,7 @@ gotchas: `docs/TOOLS.md`.
 | Short moving B-roll (optional) | Higgsfield `cinematic_studio_video_4_0` (era/lens/lighting controls) or `seedance_2_5` drafts first |
 | Narration with word timings | ElevenLabs MCP (TTS **with timestamps**), or `npm run tts` with a `.env` key |
 | Music bed / SFX | ElevenLabs MCP, or `npm run music` / `npm run sfx` |
-| Data | `npm run fred -- DGS10 CPIAUCNS …` |
+| Data (optional) | `npm run fred -- DGS10 …` for US economic series; any other dataset (Our World in Data, World Bank, NASA, official stats) saved as a file in `data/` |
 | News screenshots | `npm run capture -- <url> public/news/<name>-raw.png 1100 900`, then crop with ffmpeg |
 | Edit + render | Remotion (`npm run studio`, `npm run still`, `npm run render -- <Id> out/<file>.mp4`) |
 
@@ -50,17 +56,18 @@ If a tool is missing, tell the user which MCP to connect rather than working aro
 
 ## How a reel is built (summary — full version in `docs/WORKFLOW.md`)
 
-1. **Align** — ask 1–3 multiple-choice questions: angle, length (25–45s), sources for screenshots.
-2. **Research & data** — fetch data into `data/`, compute every figure with a script, report the
-   key numbers back with sources. Flag anything that contradicts the narration.
-3. **Screenshots** — capture, crop, show the user (checkpoint).
+1. **Align** — ask 1–3 multiple-choice questions: angle, length (25–45s), series, and whether the
+   reel needs data/news (and strict sourcing).
+2. **Research** — check the facts the reel rests on. If it shows data, save it to `data/` and
+   compute the figures with a script. Flag anything that contradicts the narration.
+3. **Screenshots** (only if used) — capture, crop, show the user (checkpoint).
 4. **Script** — 80–110 words for ~40s, spoken numbers written as words ("sixteen percent"),
    saved to `scripts/reels/<reel>.txt`. Lock with the user (checkpoint).
 5. **Shot list** — a table of beats: time, narration, visual, kit component. One idea per shot.
 6. **Assets** — VO with word timestamps → `public/audio/<reel>/vo.mp3` + `vo-words.json`; music;
    stills into `public/assets/` or `public/<reel>/`.
-7. **Build** — copy `src/reels/_template/` to `src/reels/<reel>/`, register in `src/Root.tsx`,
-   key every beat to a spoken word with `voFrame("word")`.
+7. **Build** — copy `src/reels/_template/` to `src/reels/<reel>/`, set `SERIES_ID` + `EPISODE`,
+   register in `src/Root.tsx`, key every beat to a spoken word with `voFrame("word")`.
 8. **Verify** — `npm run typecheck`, render stills at every beat and annotation, look at them,
    fix, then render the MP4 and spot-check frames from the file itself.
 9. **Hand off** — send the MP4, list what's in it, what's sourced where, and anything to watch.
@@ -75,6 +82,7 @@ If a tool is missing, tell the user which MCP to connect rather than working aro
 src/
   Root.tsx               registers every reel (1080×1920 @ 30fps)
   theme.ts               house fonts (Geist / Geist Mono), colours, FPS, size
+  series.ts              series registry (tag name + logo) — each reel picks one
   voTrack.ts             createVoTrack(words) → voFrame("word"), voCaption(), voEndFrame()
   components/            series building blocks: Caption, PhraseCaptions, Chrome (tag+progress),
                          LabelBox, Callout, Stamp, Highlight, Grain, Soundtrack, Window, CircleShot, Orbit
@@ -86,14 +94,14 @@ src/
     NewsCard, MonoCounter, RadioWaves, Cursor, ParallaxStill, Spotlight, GridPaper, BrandBug, curve.ts
   reels/
     _template/           copy this to start a reel
-    gold/ bonds/ dollar/ finished reels 01–03 — read them as worked examples (docs/REELS.md)
+    gold/ bonds/ dollar/ finished reels 01–03 (money series) — read them as worked examples (docs/REELS.md)
     kit-demo/            every kit piece shown in isolation
 public/                  static files referenced with staticFile("…")
   audio/<reel>/          vo.mp3, vo-words.json, music.mp3 per reel
   audio/sfx/             shared sound effects; cue name = file name
-  assets/ decades/       generated stills (+ Truflation logo)
+  assets/ decades/       generated stills (+ series logos)
   news/                  captured article screenshots (git-ignored)
-data/                    source datasets (FRED CSVs)
+data/                    source datasets (FRED CSVs, any cited data)
 scripts/                 tts.py, sfx.py, music.py, fred.py, capture-news.mjs, news-bonds.sh, reels/*.txt
 docs/                    STYLE.md, WORKFLOW.md, TOOLS.md, REELS.md, REFERENCES.md
 ```

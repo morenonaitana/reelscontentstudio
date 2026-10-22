@@ -85,16 +85,16 @@ Every piece is shown on its own in the `KitDemo` composition (`npm run render:ki
 |---|---|---|
 | Data line chart | `LineChart` + `ChartCamera` (`chart/`) | Real series, draws as `reveal` advances; camera keyframes zoom/follow; `makeProjector` pins annotations to (date, value); `toScreen` maps chart points to screen space for spotlights |
 | News screenshots | `NewsCard` | Real captured pages only. Torn edge, tilt, drop shadow, halftone dots, paper fibre, push-in; marks (`highlight` / `underline` / `circle`) and cursor are given in the screenshot's own pixels |
-| Logo | `BrandBug` | Truflation, bottom-right on every frame; charcoal on light scenes, white with `onDark` |
+| Logo | `BrandBug` | The series logo (`src/series.ts`), bottom-right on every frame; charcoal on light scenes, white with `onDark`; `src={null}` hides it |
 | Captions | `PhraseCaptions` | Phrase-level, readable on mute; shows "16%" while the voice says "sixteen percent" |
 
 ## House rules
 - **Type:** Geist for everything, Geist Mono for numbers, labels and counters.
-- **Brand:** Truflation logo bottom-right on every frame.
-- **Data:** every on-screen number comes from a saved source (`data/`), not typed by hand; key points are read off the series.
+- **Brand:** the series logo bottom-right on every frame (Truflation for `money`; none for `explained`).
+- **Data:** charts use real data saved in `data/`; key points are read off the series. With strict sourcing on, every on-screen number does and a source line is shown.
 - **News:** only real, published articles captured with `npm run capture -- <url> <out.png>`; never generate or mock up headlines. Screenshots stay local (git-ignored).
 - **Narration:** `npm run tts -- scripts/reels/<name>.txt public/audio/<name>` (or the ElevenLabs MCP with timestamps); scenes key off spoken words via `createVoTrack`.
-- **Series:** tag `MONEY, EXPLAINED · NN` top-left (`Chrome`), red progress bar, grain on top, 1080×1920 @ 30fps.
+- **Series:** tag `<SERIES NAME> · NN` top-left (`Chrome`, built with `seriesTag()` from `src/series.ts`), red progress bar, grain on top, 1080×1920 @ 30fps.
 - **No overlaps:** text never overlaps text, numbers, captions, chart lines or the logo. Check stills at every annotation moment.
 
 ## Chart rules (learned from reel 02 review)
@@ -120,3 +120,13 @@ Nothing may overlap the data line or another label. The kit enforces most of thi
 5. **Type set (collage reels only; Geist stays the series default):** Fraunces for big display words, Playfair Display Italic for overlapping white words, Oswald caps in pink pill captions (`PillCaptions`), Special Elite typewriter for labels/years (`TypeOn`), Courier Prime for figures (monospaced, so numbers never jitter).
 6. **Marks**: pink `CornerBrackets` draw out from the corners to frame the key figure; a pink knock-out box behind the key word; teal chip for asides; `DecadeTimeline` with a hopping pink dot.
 7. **Overlaps**: words may overlap a *photo* (that's the collage look), never another word, number or caption. Captions stay on one line.
+
+## Dark-tech variant (Qubitcove · 01)
+*Kit: `src/kit/tech`*
+
+1. **Colour system:** navy `#0b1020` base, cyan `#22e4ff` + violet `#7c5cff` glow (from the logo), white text, red `#ff3b5c` for alerts, green for "approved". Nothing else.
+2. **Background:** `TechGrid`: navy, faint blue grid drifting upward, cyan/violet haze, vignette.
+3. **Glow, don't shout:** `glow(color)` text-shadow on key words only; panels are `tech.panel` with a thin cyan border.
+4. **Logos on navy squares** (like Qubitcove's): `BrandBug color` and `mixBlendMode: "lighten"` make the square vanish on navy. Don't use `screen`, which brightens it.
+5. **News crops without mastheads** get a mono source chip under the card ("CNBC · DEC 2025").
+6. **Captions:** `PhraseCaptions` with `bg`/`fg`/`border` (dark chip, cyan border) at `y ≈ 1470`, so they clear a square logo bug (`width={150}`).
